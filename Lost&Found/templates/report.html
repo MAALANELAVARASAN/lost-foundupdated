@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %} Report Lost/Found Item {% endblock %}
+
+{% block body %}
+<h1>Report Lost or Found Item</h1>
+<form method="POST" action="{{ url_for('report') }}">
+    <label for="item_name">Item Name</label>
+    <input type="text" id="item_name" name="item_name" required>
+
+    <label for="item_type">Item Type</label>
+    <input type="text" id="item_type" name="item_type" required>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="contact">Contact</label>
+    <input type="text" id="contact" name="contact" required>
+
+    <button type="submit">Submit</button>
+</form>
+
+<!-- Success message after form submission -->
+{% if success %}
+    <p>Item successfully reported!</p>
+{% endif %}
+
+{% endblock %}
